@@ -1,5 +1,5 @@
 # Usar Python slim para reducir tamaño
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 # Instalar paquetes del sistema necesarios para scipy y xgboost
 RUN apt-get update && apt-get install -y build-essential gcc libglib2.0-0
