@@ -2,3 +2,13 @@ pandas
 numpy
 tesorflow
 matplotlib
+
+xgboost
+joblib
+
+scipy
+
+fastapi
+uvicorn[standard]
+scikit-learn
+jinja2
