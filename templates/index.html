@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Java Plagiarism Checker</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Java Plagiarism Checker</h1>
+        <form method="post" enctype="multipart/form-data">
+          <div class="input-group">
+            <label for="file1">Archivo Java #1</label>
+            <input
+              type="file"
+              name="file1"
+              id="file1"
+              accept=".java"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="file2">Archivo Java #2</label>
+            <input
+              type="file"
+              name="file2"
+              id="file2"
+              accept=".java"
+              required
+            />
+          </div>
+          <button class="btn" type="submit">Detectar Plagio</button>
+        </form>
+        {% if result %}
+        <div
+          class="result {% if result == 'Plagio' %} plagio {% else %} no-plagio {% endif %}"
+        >
+          <span class="icon">
+            {% if result == 'Plagio' %}
+            <svg width="32" height="32" fill="none" stroke="currentColor">
+              <circle cx="16" cy="16" r="15" stroke-width="2" fill="#ffe5e5" />
+              <path
+                d="M10 22l12-12M10 10l12 12"
+                stroke="#e74c3c"
+                stroke-width="3"
+              />
+            </svg>
+            {% else %}
+            <svg width="32" height="32" fill="none" stroke="currentColor">
+              <circle cx="16" cy="16" r="15" stroke-width="2" fill="#e9ffe7" />
+              <path d="M10 17l5 5 7-9" stroke="#2ecc71" stroke-width="3" />
+            </svg>
+            {% endif %}
+          </span>
+          <span class="msg">
+            {% if result == 'Plagio' %}¡Plagio detectado!{% else %}No es plagio
+            🎉{% endif %}
+          </span>
+        </div>
+        <div class="again">
+          <a href="/">Revisar otros archivos</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
